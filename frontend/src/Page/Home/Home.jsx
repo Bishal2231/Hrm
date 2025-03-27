@@ -35,28 +35,28 @@ const Home = () => {
         <div className="p-6 bg-gray-100 min-h-screen">
             {/* Stats Section */}
             <div className="grid grid-cols-4 gap-4 mb-6">
-                <Card className="bg-purple-600 text-white p-3 flex items-center justify-between">
+                <Card className="bg-purple-600 text-white p-3 flex-row items-center justify-between">
                     <div>
                         <h3 className="text-base font-semibold">Total Employee</h3>
                         <p className="text-2xl">1007</p>
                     </div>
                     <Users className="text-white w-6 h-6" />
                 </Card>
-                <Card className="bg-green-600 text-white p-3 flex items-center justify-between">
+                <Card className="bg-green-600 text-white p-3 flex items-center flex-row justify-between">
                     <div>
                         <h3 className="text-base font-semibold">Active</h3>
                         <p className="text-2xl">1007</p>
                     </div>
                     <UserCheck className="text-white w-6 h-6" />
                 </Card>
-                <Card className="bg-blue-900 text-white p-3 flex items-center justify-between">
+                <Card className="bg-blue-900 text-white p-3 flex items-center flex-row justify-between">
                     <div>
                         <h3 className="text-base font-semibold">Inactive</h3>
                         <p className="text-2xl">1007</p>
                     </div>
                     <UserX className="text-white w-6 h-6" />
                 </Card>
-                <Card className="bg-blue-600 text-white p-3 flex items-center justify-between">
+                <Card className="bg-blue-600 text-white p-3 flex items-center flex-row justify-between">
                     <div>
                         <h3 className="text-base font-semibold">New Joiners</h3>
                         <p className="text-2xl">67</p>
