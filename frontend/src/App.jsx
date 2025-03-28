@@ -7,6 +7,7 @@ import Designation from './Page/deignation'
 import Employeepage from './Page/Employee/Employeepage'
 import Signup from './SubPages/Signup/Signup'
 import Attendance from './Page/Attendance'
+import Login from './SubPages/Login/Login'
 function App() {
 
   return (
@@ -20,6 +21,8 @@ function App() {
 
 
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+
 
 
 

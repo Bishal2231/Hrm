@@ -50,7 +50,6 @@ console.log("avatar urk ",avatarUrl)
 export const loginUser = async (req, res) => { 
     const { email, password } = req.body;
 
-    console.log("res",res)
 
   if (!email || !password) {
     return res.status(400).json({ message: 'Email and password are required' });
