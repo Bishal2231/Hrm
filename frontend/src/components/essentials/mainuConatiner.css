@@ -1,0 +1,17 @@
+.Mainucontainer{
+    margin-top: 1rem;
+    /* padding: 1rem; */
+}
+.mainuTitleContainer{
+    height: 50vh;
+    /* background-color: red; */
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.mainuTitleDetail{
+    display: flex;
+    gap: 0.3rem;
+}
