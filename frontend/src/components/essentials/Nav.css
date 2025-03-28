@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navContainer{
+    height: 100vh;
+    width: 17vw;
+    padding: 0.5rem;
+   background-color: #fff;
+}
+.nameAndLogioContainer{
+display: flex;
+gap: 0.5rem;
+
+}
+.title{
+    display: flex;
+    flex-direction: column;
+}
+.subTitle{
+    margin-left: 5rem;
+}
