@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Search, Settings, PlusCircle, Trash2, Edit, CheckSquare, ChevronDown, FileText, FileSpreadsheet, RefreshCw, ChevronUp } from "lucide-react";
-
+// npx shadcn@latest add 
 const holidays = [
   { type: "New Year", date: "01 Jan 2025", description: "First day of the new year", status: "Active" },
   { type: "Martin Luther King Jr. Day", date: "15 Jan 2025", description: "Celebrating the civil rights leader", status: "Active" },
