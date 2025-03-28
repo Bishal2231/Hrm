@@ -8,6 +8,8 @@ import Employeepage from './Page/Employee/Employeepage'
 import Signup from './SubPages/Signup/Signup'
 import Attendance from './Page/Attendance'
 import Login from './SubPages/Login/Login'
+// import Attendanceemployee from './Page/Attendanceemployee'
+import { Attendanceemployee } from './Page/Attendenceemployee'
 function App() {
 
   return (
@@ -18,6 +20,7 @@ function App() {
        <Route path="/designation" element={<Designation />} />
        <Route path="/employee" element={<Employeepage />} />
        <Route path="/attendance" element={<Attendance />} />
+       <Route path="/attendanceemployee" element={<Attendanceemployee />} />
 
 
         <Route path="/signup" element={<Signup />} />
