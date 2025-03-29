@@ -8,10 +8,6 @@ const Nav = () => {
   return (
     <div >
       <TopNav />
-
-
-
-      
     <MainuContainer />
       
     </div>
