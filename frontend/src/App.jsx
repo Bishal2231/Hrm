@@ -12,6 +12,7 @@ import Login from './SubPages/Login/Login'
 import { Attendanceemployee } from './Page/Attendenceemployee'
 import { Adminleave } from './Page/Adminleave'
 import { Leavetypes} from './Page/Leavetypes'
+import { Empleave } from './Page/Empleave'
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
        <Route path="/attendanceemployee" element={<Attendanceemployee />} />
        <Route path="/adminleave" element={<Adminleave />}/>
        <Route path="/leavetypes" element={<Leavetypes />} />
+       <Route path="/empleave" element={<Empleave />} />
 
 
         <Route path="/signup" element={<Signup />} />
