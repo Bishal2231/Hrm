@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Search, Settings, Users, UserCheck, UserX, UserPlus, MoreVertical } from "lucide-react";
@@ -32,14 +32,18 @@ const employees = [
 ];
 
 const Home = () => {
+    const [nav,setNav] = useState(true)
     return (
         <div className="p-6 bg-gray-100 min-h-screen flex flex-row gap-4">
           <div>
           {/* <div style={{ height: '1rem', width: '100vw', backgroundColor: 'pink' }}></div> */}
-            <Nav />
+          
+          { nav ? <Nav /> : null }
+          
+
            
             </div>  
-            <div style={{marginTop:'5rem',backgroundColor:'pink'}}>
+            <div style={{marginTop:'7rem',width:"80%",  transition: 'all 0.5s ease-in-out'}}>
                 {/* Stats Section */}
                 <div className="grid grid-cols-4 gap-4 ">
                     <Card className="bg-purple-600 text-white p-3 flex-row items-center justify-between">
