@@ -1,63 +1,132 @@
-import React from "react";
-import "./mainuConatiner.css";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  FaUsers,
+  FaBullseye,
+  FaUserTie,
+  FaExchangeAlt,
+  FaUserClock,
+  FaCalendarAlt,
+  FaCalendarDay,
+  FaFileInvoiceDollar
+} from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
 
-  import './nav.css'
-
-import { userAuthStore } from "../../authstore/Authstore";
 const MainuContainer = () => {
-  const { user } = userAuthStore()
-  console.log(user)
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [leaveTypeList, SetleaveTypeList] = useState(false)
+  const [AttendenceTypeList, setAttendenceTypeList]=useState(false)
+  const openLeaveTypes = () => {
+    SetleaveTypeList(!leaveTypeList)
+    console.log("working")
+
+  }
+  const openAttendenceTypes = () => {
+    setAttendenceTypeList(!AttendenceTypeList)
+    console.log("working")
+
+  }
+
+  const toggleSidebar = () => {
+    setIsCollapsed(!isCollapsed);
+    if (leaveTypeList) {
+      SetleaveTypeList(false)
+    }
+    if (AttendenceTypeList) { 
+      setAttendenceTypeList(false)
+    }
+  };
+
   return (
+    <div className={`h-screen bg-white transition-all duration-500 ease-in-out overflow-hidden relative   border
+      ${isCollapsed ? "w-[5rem]" : "w-[14vw] pl-6 pr-6"}`}>
 
-    <div className="navContainer">
-      
-    <div className="Mainucontainer">
+      {/* Hamburger Menu */}
+      <button
+        onClick={toggleSidebar}
+        className="absolute top-[-3] right-0 p-2 mb-7 rounded-md hover:bg-gray-100 transition-colors"
+      >
+        <FiMenu className="text-gray-600 text-xl" />
+      </button>
 
-      <h5>HRM</h5>
-      <div className="mainuTitleContainer">
-        <div className="mainuTitleDetail">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height={"0.8rem"}
-            viewBox="0 0 448 512"
-          >
-            <path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464l349.5 0c-8.9-63.3-63.3-112-129-112l-91.4 0c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3z" />
-          </svg>
-          <h6>Emoloyees</h6>
-          {user ? user.userName : "no user"}
-        </div>
-       
-        <div className="mainuTitleDetail">
-        <svg xmlns="http://www.w3.org/2000/svg" height={"0.8rem"} viewBox="0 0 512 512"><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm306.7 69.1L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
-          <h6>Departments</h6>
-        </div>
+      <div className="mt-10">
+        {/* {!isCollapsed && <h5 className="text-lg font-semibold">HRM</h5>} */}
 
-        <div className="mainuTitleDetail">
-        <svg xmlns="http://www.w3.org/2000/svg" height={'0.8rem'} viewBox="0 0 320 512"><path d="M16 144a144 144 0 1 1 288 0A144 144 0 1 1 16 144zM160 80c8.8 0 16-7.2 16-16s-7.2-16-16-16c-53 0-96 43-96 96c0 8.8 7.2 16 16 16s16-7.2 16-16c0-35.3 28.7-64 64-64zM128 480l0-162.9c10.4 1.9 21.1 2.9 32 2.9s21.6-1 32-2.9L192 480c0 17.7-14.3 32-32 32s-32-14.3-32-32z"/></svg>
-          <h6>Designation</h6>
-        </div>
-        <div className="mainuTitleDetail">
-        <svg xmlns="http://www.w3.org/2000/svg" height={'0.8rem'} viewBox="0 0 512 512">  <path d="M403.8 34.4c12-5 25.7-2.2 34.9 6.9l64 64c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-64 64c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6l0-32-32 0c-10.1 0-19.6 4.7-25.6 12.8L284 229.3 244 176l31.2-41.6C293.3 110.2 321.8 96 352 96l32 0 0-32c0-12.9 7.8-24.6 19.8-29.6zM164 282.7L204 336l-31.2 41.6C154.7 401.8 126.2 416 96 416l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c10.1 0 19.6-4.7 25.6-12.8L164 282.7zm274.6 188c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6l0-32-32 0c-30.2 0-58.7-14.2-76.8-38.4L121.6 172.8c-6-8.1-15.5-12.8-25.6-12.8l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c30.2 0 58.7 14.2 76.8 38.4L326.4 339.2c6 8.1 15.5 12.8 25.6 12.8l32 0 0-32c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l64 64c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-64 64z"/></svg>
-          <h6>Shifts</h6>
-        </div>
-        <div className="mainuTitleDetail">
-        <svg xmlns="http://www.w3.org/2000/svg" height={'0.8rem'} viewBox="0 0 640 512"><path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM504 312l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg>
-          <h6>Attendence</h6>
-        </div>
-        <div className="mainuTitleDetail">
-        <svg xmlns="http://www.w3.org/2000/svg" height={'0.8rem'} viewBox="0 0 448 512"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM64 400l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zm112 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16z"/></svg>
-          <h6>Leaves</h6>
-        </div>
-        <div className="mainuTitleDetail">
-        <svg xmlns="http://www.w3.org/2000/svg" height={'0.8rem'} viewBox="0 0 448 512"><path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L64 64C28.7 64 0 92.7 0 128l0 16 0 48L0 448c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-256 0-48 0-16c0-35.3-28.7-64-64-64l-40 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L152 64l0-40zM48 192l352 0 0 256c0 8.8-7.2 16-16 16L64 464c-8.8 0-16-7.2-16-16l0-256z"/></svg>
-          <h6> Holidays</h6>
-        </div>
-        <div className="mainuTitleDetail">
-        <svg xmlns="http://www.w3.org/2000/svg" height={'0.8rem'} viewBox="0 0 384 512"><path d="M64 464c-8.8 0-16-7.2-16-16L48 64c0-8.8 7.2-16 16-16l160 0 0 80c0 17.7 14.3 32 32 32l80 0 0 288c0 8.8-7.2 16-16 16L64 464zM64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-293.5c0-17-6.7-33.3-18.7-45.3L274.7 18.7C262.7 6.7 246.5 0 229.5 0L64 0zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0z"/></svg>
-          <h6>Payroll</h6>
+        <div className="h-[50vh] mt-4 ml-2 flex flex-col gap-4">
+          {/* Employees */}
+          <div className="flex gap-2 items-center p-2 hover:bg-gray-100 rounded-md cursor-pointer">
+            <FaUsers className="text-gray-600" size="0.8rem" />
+            {!isCollapsed && (
+              <>
+                <h6 className="text-sm"> <Link to='/'>Employees</Link>  </h6>
+          
+              </>
+            )}
+          </div>
+
+          {/* Departments */}
+          <div className="flex gap-2 items-center p-2 hover:bg-gray-100 rounded-md cursor-pointer">
+            <FaBullseye className="text-gray-600" size="0.8rem" />
+            {!isCollapsed && <h6 className="text-sm">Departments</h6>}
+          </div>
+
+          {/* Designation */}
+          <div className="flex gap-2 items-center p-2 hover:bg-gray-100 rounded-md cursor-pointer">
+            <FaUserTie className="text-gray-600" size="0.8rem" />
+            {!isCollapsed && <h6 className="text-sm"> <Link to='/designation'> Designation </Link></h6>}
+          </div>
+
+          {/* Shifts */}
+          <div className="flex gap-2 items-center p-2 hover:bg-gray-100 rounded-md cursor-pointer">
+            <FaExchangeAlt className="text-gray-600" size="0.8rem" />
+            {!isCollapsed && <h6 className="text-sm"> <Link to="/shifts"> Shifts </Link> </h6>}
+          </div>
+
+          {/* Attendence */}
+          <div className={`flex gap-2    p-2 hover:bg-gray-100 rounded-md cursor-pointer ${AttendenceTypeList ? `flex-col` : ``}`}>
+            <div className="flex flex-row gap-2 ">
+
+            <FaUserClock className="text-gray-600" size="0.8rem" />
+              {!isCollapsed && <h6 className="text-sm" onClick={openAttendenceTypes}>  Attendence</h6>}
+            </div>
+
+            {AttendenceTypeList &&
+              <div className="text-sm text-nowrap">
+                <li > <Link to="/attendanceadmin"> Admin attendence</Link> </li>
+                <li><Link to="/attendanceemployee"> Employee attendence</Link> </li>
+                </div>
+              }
+          </div>
+
+          {/* Leaves */}
+          <div className={`flex gap-2   p-2 hover:bg-gray-100 rounded-md cursor-pointer ${leaveTypeList? `flex-col`: ``}`}>
+            <div className="flex flex-row gap-2 ">
+              <FaCalendarAlt className="text-gray-600" size="0.8rem" />
+              {!isCollapsed && <h6 className="text-sm" onClick={openLeaveTypes}>  Leaves </h6>
+
+              }</div>
+          
+            {leaveTypeList &&
+              <div className="text-sm">
+                <li > <Link to="/adminleave"> Admin Leave</Link> </li>
+                <li><Link to="/empleave"> Employee Leave</Link> </li>
+                <li> <Link to="/leavetypes">Leave Types </Link>  </li> </div> 
+              }
+          </div>
+
+          {/* Holidays */}
+          <div className="flex gap-2 items-center p-2 hover:bg-gray-100 rounded-md cursor-pointer">
+            <FaCalendarDay className="text-gray-600" size="0.8rem" />
+            {!isCollapsed && <h6 className="text-sm"> <Link to="/holiday"> Holidays</Link></h6>}
+          </div>
+
+          {/* Payroll */}
+          <div className="flex gap-2 items-center p-2 hover:bg-gray-100 rounded-md cursor-pointer">
+            <FaFileInvoiceDollar className="text-gray-600" size="0.8rem" />
+            {!isCollapsed && <h6 className="text-sm">Payroll</h6>}
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

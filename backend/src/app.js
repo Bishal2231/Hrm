@@ -9,6 +9,7 @@ import path from 'path'
 import { fileURLToPath } from "url"
 // import userRoutes from "./routes/user.routes.js"
 import userRoutes from "./routes/user.routes.js"
+import employee from "./routes/employee.routes.js"
 const app=express()
 
 const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
@@ -37,8 +38,8 @@ app.use(express.static("public"))
 
 
 
-app.use('/user',userRoutes)
-
+app.use('/user',userRoutes) 
+app.use('/employee',employee)
 app.get("/",(req,res)=>{
     res.send("working")
 })

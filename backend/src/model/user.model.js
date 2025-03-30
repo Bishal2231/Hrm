@@ -20,10 +20,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         unique: true,
         required:true
-    } , avatar: {
+  },
+  avatar: {
     type: String,
     default: "https://i.pinimg.com/736x/58/51/2e/58512eb4e598b5ea4e2414e3c115bef9.jpg",
-    }, role: {
+  },
+  role: {
         type: String,
         enum: ["admin", "user", "superAdmin"],
         default:"user"
@@ -40,6 +42,9 @@ const userSchema = new mongoose.Schema({
     default: Date.now,
     }, location: {
       type:String
+  },
+  department: {
+    type:Array
   },
   isVerified: {
     type: Boolean,
