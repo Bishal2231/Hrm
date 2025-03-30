@@ -14,6 +14,7 @@ import { Adminleave } from './Page/Adminleave'
 import { Leavetypes} from './Page/Leavetypes'
 import { Empleave } from './Page/Empleave'
 import {Shifts} from './Page/Shifts'
+import Department from './Page/Department'
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
        <Route path="/leavetypes" element={<Leavetypes />} />
        <Route path="/empleave" element={<Empleave />} />
        <Route path="/shifts" element={<Shifts />} />
+       <Route path="/department" element={<Department />} />
 
 
         <Route path="/signup" element={<Signup />} />
