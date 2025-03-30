@@ -21,6 +21,9 @@ import MainuContainer from './components/essentials/MainuContainer'
 import Attendanceadmin from './Page/Attendanceadmin'
 import VerifyOTP from './SubPages/Verify-otp/VerifyOTP'
 import {AddEmployeePage} from './SubPages/Addemployee/Addemployee'
+import {Shifts} from './Page/Shifts'
+import Department from './Page/Department'
+
 
 function App() {
 
@@ -48,6 +51,18 @@ function App() {
               <Route path="/shifts" element={<Shifts />} />
               
               <Route path="/verify-otp" element={<VerifyOTP />} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+       <Route path="/holiday" element={<Holiday />}/>
+       <Route path="/designation" element={<Designation />} />
+       <Route path="/employee" element={<Employeepage />} />
+       <Route path="/attendance" element={<Attendance />} />
+       <Route path="/attendanceemployee" element={<Attendanceemployee />} />
+       <Route path="/adminleave" element={<Adminleave />}/>
+       <Route path="/leavetypes" element={<Leavetypes />} />
+       <Route path="/empleave" element={<Empleave />} />
+       <Route path="/shifts" element={<Shifts />} />
+       <Route path="/department" element={<Department />} />
 
 
               <Route path="/signup" element={<Signup />} />
