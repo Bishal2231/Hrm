@@ -15,7 +15,7 @@ const employees = [
   { name: "Michelle Robison", role: "HR Manager", status: "Present", img: "/avatars/michelle.jpg", clockIn: "09:30 AM", clockOut: "08:10 PM", production: "09h 00m", break: "00h 34m", overtime: "00h 20m", total: "09h 20m" },
 ];
 
-export default function Attendance() {
+export default function Attendanceadmin() {
   const [search, setSearch] = useState("");
   
   return (
